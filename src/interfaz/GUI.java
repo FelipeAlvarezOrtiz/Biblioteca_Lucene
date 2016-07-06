@@ -8,6 +8,8 @@ import javax.swing.Box;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import javax.swing.JPanel;
+import javax.swing.JCheckBox;
 
 public class GUI {
 
@@ -15,7 +17,13 @@ public class GUI {
 	public JTextField indexField;
 	public JButton ExaminarIndex;
 	public JButton botonIndexar;
-	public Box horizontalBox;
+	public Box hbIndice;
+	public Box hbBuscar;
+	public JPanel panel;
+	public JLabel lblBusqueda;
+	public JTextField textField;
+	public JButton botonBuscar;
+	public JCheckBox BusquedaIntensivaCBox;
 
 	public GUI() {
 		initialize();
@@ -51,9 +59,36 @@ public class GUI {
 		botonIndexar.setBounds(487, 73, 97, 25);
 		frmBiblioteca.getContentPane().add(botonIndexar);
 		
-		horizontalBox = Box.createHorizontalBox();
-		horizontalBox.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2), "Indice", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		horizontalBox.setBounds(12, 13, 1020, 101);
-		frmBiblioteca.getContentPane().add(horizontalBox);
+		hbIndice = Box.createHorizontalBox();
+		hbIndice.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2), "Indice", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		hbIndice.setBounds(12, 13, 1020, 101);
+		frmBiblioteca.getContentPane().add(hbIndice);
+		
+		hbBuscar = Box.createHorizontalBox();
+		hbBuscar.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2), "Buscar", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		hbBuscar.setBounds(12, 127, 1020, 126);
+		frmBiblioteca.getContentPane().add(hbBuscar);
+		
+		panel = new JPanel();
+		hbBuscar.add(panel);
+		panel.setLayout(null);
+		
+		lblBusqueda = new JLabel("Busqueda");
+		lblBusqueda.setBounds(12, 13, 67, 22);
+		panel.add(lblBusqueda);
+		
+		textField = new JTextField();
+		textField.setBounds(99, 13, 788, 22);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		botonBuscar = new JButton("Buscar");
+		botonBuscar.setBounds(899, 12, 97, 25);
+		panel.add(botonBuscar);
+		
+		BusquedaIntensivaCBox = new JCheckBox("Busqueda Intensiva");
+		BusquedaIntensivaCBox.setToolTipText("Busqueda intensiva aumenta un ratio de busqueda por el indice, permitiendo encontrar elementos similares.");
+		BusquedaIntensivaCBox.setBounds(8, 55, 147, 25);
+		panel.add(BusquedaIntensivaCBox);
 	}
 }
